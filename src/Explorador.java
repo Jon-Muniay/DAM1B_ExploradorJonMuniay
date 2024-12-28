@@ -4,7 +4,7 @@ public class Explorador {
 
     public Explorador(String nombre) {
         this.nombre = nombre;
-        Posicion posicionActual;
+        this.posicionActual = new Posicion(0, (int) (Math.random() * 6));
     }
 
     public String getNombre() {
@@ -17,11 +17,28 @@ public class Explorador {
 
     public void setPosicionActual(Posicion posicionActual) {
         this.posicionActual = posicionActual;
+
     }
-    public static void Moverse(int direccion){
-        String[] mover={"Arriba","ABAJO", "DERECHA", "IZQUIERDA"};
 
-
-
+    public void Moverse(int direccion) {
+        int fila = posicionActual.getCoordenadaFila();
+        int columna = posicionActual.getCoordenadaCol();
+        switch (direccion){
+            case 1:
+                if (fila >0)fila--;
+                break;
+            case 2:
+                if (fila< 5) fila++;
+            case 3:
+                if (columna <19)columna++;
+                break;
+            case 4:
+                if (columna >0)columna--;
+                break;
+            default:
+                System.out.println("Direccion no disponible");
+        }
+        posicionActual.setCoordenadaCol(columna);
+        posicionActual.setCoordenadaFila(fila);
     }
 }
