@@ -12,29 +12,38 @@ public class Mapa {
     }
 
     public void mapa() {
-        for (int i = 0; i <6; i++) {
+        tablero = new char[6][20];
+        for (int i = 0; i < 6; i++) {
             for (int j = 0; j < 20; j++) {
                 tablero[i][j] = ' ';
             }
         }
-        int trampas = (int) (Math.random());
-        for (int i = 0; i <3;i++){
-            int fila;
-            int columna;
-
     }
 
-
-        public char[][] getTablero () {
-            return tablero;
+    public void mostrarMapa() {
+        System.out.print(" ");
+        for (int j = 0; j < 20; j++) {
+            System.out.print("----");
         }
-
-        public Posicion getPosTesoro () {
-            return posTesoro;
+        System.out.println("-");
+        for (int i = 0; i < 6; i++) {
+            for (int j = 0; j < 20; j++) {
+                System.out.print("|" + tablero[i][j] + " ");
+            }
+            System.out.println("|");
         }
-        public void mostrar () {
-
-
+        System.out.println(" ");
+        for (int j = 0; j < 20; j++) {
+            System.out.print("----");
         }
+        System.out.println("-");
+    }
+    public char[][] getTablero() {
+        return tablero;
+    }
+
+    public Posicion getPosTesoro() {
+        return posTesoro;
     }
 }
+
