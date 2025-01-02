@@ -14,12 +14,17 @@ public class Mapa {
 
     }
     public void mostrarMapa() {
+
+
         for (int i = 0; i < 6; i++) {
             for (int j = 0; j < 20; j++) {
                 System.out.print(tablero[i][j]);
+                if (j<19){
+                    System.out.print("|");
+                }
             }
             System.out.println();
-            for (int fil = 0; fil < 20 * 2- 1; fil++) {
+            for (int fil = 0; fil < 39; fil++) {
                 System.out.print("-");
                 
             }
