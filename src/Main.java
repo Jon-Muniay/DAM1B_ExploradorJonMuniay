@@ -7,6 +7,7 @@ public class Main {
         System.out.println("********************************");
         Mapa mapa = new Mapa();
         Explorador explorador = new Explorador("Jon");
+        mapa.mostrarMapa();
 
 
     }
