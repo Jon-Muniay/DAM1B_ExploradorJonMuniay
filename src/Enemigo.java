@@ -1,7 +1,7 @@
 public class Enemigo {
     private Posicion posicionActual;
 
-    public Enemigo(String nombreExplorador) {
+    public Enemigo(Posicion nombreExplorador) {
         this.posicionActual = new Posicion(0, (int) (Math.random() * 6));
     }
 
