@@ -14,6 +14,7 @@ public class Enemigo {
     }
 
     public void moverse(int direccion) {
+
         switch (direccion) {
             case 1:
                 if (posicionActual.getCoordenadaFila() > 0) {

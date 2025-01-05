@@ -1,16 +1,18 @@
 public class Mapa {
-    char[][] tablero;
-    Posicion posTesoro;
+    private char[][] tablero;
+    private  Posicion posTesoro;
     Posicion posJugador;
-    Enemigo[] listadoEnemigo;
-    Posicion[] posicionTrampas;
+   private  Enemigo[] listadoEnemigo;
+    private Posicion[] posicionTrampas;
+
 
     public Mapa() {
         tablero = new char[6][20];
         posicionTrampas = new Posicion[3];
         listadoEnemigo = new Enemigo[3];
-        posTesoro = getPosTesoro();
+        posTesoro = new Posicion((int) (Math.random() * 6), (int) (Math.random() * 20));
         posJugador = new Posicion((int) (Math.random() * 6), (int) (Math.random() * 20));
+
         for (int i = 0; i < listadoEnemigo.length; i++) {
             listadoEnemigo[i] = new Enemigo(new Posicion((int) (Math.random() * 6), (int) (Math.random() * 20)));
         }
@@ -32,6 +34,7 @@ public class Mapa {
         tablero[posJugador.getCoordenadaFila()][posJugador.getCoordenadaCol()] = 'J';
         tablero[posTesoro.getCoordenadaFila()][posTesoro.getCoordenadaCol()] = ' ';
 
+
         for (int i = 0; i < listadoEnemigo.length; i++) {
             Enemigo enemigo = listadoEnemigo[i];
             Posicion pEmemigos = enemigo.getPosicionActual();
@@ -39,7 +42,7 @@ public class Mapa {
         }
         for (int i = 0; i < posicionTrampas.length; i++) {
             Posicion trampa = posicionTrampas[i];
-            tablero[trampa.getCoordenadaCol()][trampa.getCoordenadaFila()] = 'T';
+            tablero[trampa.getCoordenadaFila()][trampa.getCoordenadaCol()] = 'T';
         }
         // FORMA DEL MAPA
         for (int i = 0; i < 6; i++) {
@@ -50,10 +53,12 @@ public class Mapa {
                 }
             }
             System.out.println();
-            for (int fil = 0; fil < 39; fil++) {
-                System.out.print("-");
+            if (i<5) {
+                for (int fil = 0; fil < 39; fil++) {
+                    System.out.print("-");
+                }
+                System.out.println();
             }
-            System.out.println();
         }
     }
 
