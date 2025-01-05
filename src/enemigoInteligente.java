@@ -19,12 +19,22 @@ public class enemigoInteligente {
         int filaExplorador = posicionExplorador.getCoordenadaFila();
         int columnaExploradr = posicionExplorador.getCoordenadaCol();
 
+        boolean mover = false;
+
         if (Fila != filaExplorador) {
             if (Fila > filaExplorador && !pOcupada(Fila,Columna-1,trampas,enemigos)){
                 Columna --;
             } else if (Columna < columnaExploradr && !pOcupada(Fila,Columna +1,trampas,enemigos)) {
                 Columna ++;
                 
+            }
+            mover = true;
+        }
+        if (!mover && Columna != columnaExploradr){
+            if (Columna > columnaExploradr && !pOcupada(filaExplorador,Columna-1,trampas,enemigos)){
+                Columna --;
+            }else if (Columna < columnaExploradr && !pOcupada(Fila,Columna+1,trampas,enemigos)){
+                Columna ++;
             }
         }
         posicion.setCoordenadaCol(Columna);
