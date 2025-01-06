@@ -5,6 +5,8 @@ public class Mapa {
    private  Enemigo[] listadoEnemigo;
     private Posicion[] posicionTrampas;
     private enemigoInteligente EnemigoInteligente;
+    private static final String ANSI_ROJO = "\u001B[31m";
+    private static final String ANSI_RESET = "\u001B[0m";
 
 
 
@@ -25,6 +27,7 @@ public class Mapa {
     }
 
     public void mostrarMapa() {
+
         EnemigoInteligente.enemigoInteligenteMoverse(posJugador,posicionTrampas,listadoEnemigo);
 
         // LIMPIAR EL TABLERO
@@ -36,7 +39,6 @@ public class Mapa {
         // METER ENEMIGOS , JUGADOR, TRAMPAS, TESORO
         tablero[posJugador.getCoordenadaFila()][posJugador.getCoordenadaCol()] = 'J';
         tablero[posTesoro.getCoordenadaFila()][posTesoro.getCoordenadaCol()] = ' ';
-        tablero[EnemigoInteligente.getPosicion().getCoordenadaFila()][EnemigoInteligente.getPosicion().getCoordenadaCol()] = '*';
 
 
         for (int i = 0; i < listadoEnemigo.length; i++) {
@@ -79,13 +81,14 @@ public class Mapa {
             
         }
 
-
-
-
         // FORMA DEL MAPA
         for (int i = 0; i < 6; i++) {
             for (int j = 0; j < 20; j++) {
-                System.out.print(tablero[i][j]);
+                if (i == EnemigoInteligente.getPosicion().getCoordenadaFila() && j == EnemigoInteligente.getPosicion().getCoordenadaCol()){
+                    System.out.print(ANSI_ROJO+ "*" +ANSI_RESET);
+                }else {
+                    System.out.print(tablero[i][j]);
+                }
                 if (j < 19) {
                     System.out.print("|");
                 }
