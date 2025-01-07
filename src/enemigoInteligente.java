@@ -22,18 +22,17 @@ public class enemigoInteligente {
         boolean mover = false;
 
         if (Fila != filaExplorador) {
-            if (Fila > filaExplorador && !pOcupada(Fila,Columna-1,trampas,enemigos)){
+            if (Fila > filaExplorador && !pOcupada(Fila,Columna-1,trampas,enemigos) && Fila -1 >= 0){
                 Columna --;
-            } else if (Columna < columnaExploradr && !pOcupada(Fila,Columna +1,trampas,enemigos)) {
+            } else if (Columna < columnaExploradr && !pOcupada(Fila,Columna +1,trampas,enemigos)&& Fila +1 <6) {
                 Columna ++;
-                
             }
             mover = true;
         }
         if (!mover && Columna != columnaExploradr){
-            if (Columna > columnaExploradr && !pOcupada(filaExplorador,Columna-1,trampas,enemigos)){
+            if (Columna > columnaExploradr && !pOcupada(filaExplorador,Columna-1,trampas,enemigos) && Columna -1 >=0){
                 Columna --;
-            }else if (Columna < columnaExploradr && !pOcupada(Fila,Columna+1,trampas,enemigos)){
+            }else if (Columna < columnaExploradr && !pOcupada(Fila,Columna+1,trampas,enemigos) && Columna +1<20){
                 Columna ++;
             }
         }

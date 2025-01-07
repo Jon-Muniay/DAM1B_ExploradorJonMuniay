@@ -9,8 +9,11 @@ public class Main {
         System.out.println("********************************");
         System.out.println("Bienvenido al juego del explorador");
         System.out.println("********************************");
+        System.out.println("Nombre del Explorador: ");
+        String nombreExplorador = scanner.nextLine();
         Mapa mapa = new Mapa();
-        Explorador explorador = new Explorador("Jon");
+
+        Explorador explorador = new Explorador(nombreExplorador);
 
         while (jugando){
             System.out.println("1 = Arriba" +" 2 = Abajo" +" 3 = Derecha"+ " 4 = izquierda");
