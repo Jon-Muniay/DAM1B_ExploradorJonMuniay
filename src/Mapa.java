@@ -86,6 +86,14 @@ public class Mapa {
         }
 
 
+        // GANA SI CAE EN EL TESORO
+        if (posJugador.getCoordenadaCol() == posTesoro.getCoordenadaCol() && posJugador.getCoordenadaFila() ==
+                posTesoro.getCoordenadaFila()){
+            System.out.println("HAS GAANADO EL TESORO!");
+            return;
+        }
+
+
         // SI TE ATRAPA EL ENEMIGO INTELIGENTE SE TERMINA EL JUEGO
         if (posJugador.getCoordenadaCol() == EnemigoInteligente.getPosicion().getCoordenadaCol() &&
                 posJugador.getCoordenadaFila() == EnemigoInteligente.getPosicion().getCoordenadaFila()) {
