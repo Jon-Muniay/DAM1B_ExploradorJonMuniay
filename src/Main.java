@@ -14,7 +14,7 @@ public class Main {
 
         while (jugando){
             System.out.println("1 = Arriba" +" 2 = Abajo" +" 3 = Derecha"+ " 4 = izquierda");
-            System.out.println("Que accion quiere realizar? ");
+            System.out.println("Que accion quieres realizar? ");
             int letra = scanner.nextInt();
             explorador.Moverse(letra);
             mapa.posJugador = explorador.getPosicionActual();
